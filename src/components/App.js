@@ -15,12 +15,10 @@ function App() {
   }
   useEffect(() => {
     fetchSushis()
-    console.log(sushis)
   }, [])
   
   
   const eatSushi = (id, price) => {
-    console.log(id)
     if (wallet >= price){
       const newSushis = sushis.filter((sushi) => {
       return (sushi.id !== id)
