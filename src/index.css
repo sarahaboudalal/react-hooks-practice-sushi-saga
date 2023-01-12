@@ -79,3 +79,9 @@ body {
   width: 700px;
   margin: auto;
 }
+
+.error {
+  text-align: center;
+  color: red;
+  font-weight: bolder;
+}

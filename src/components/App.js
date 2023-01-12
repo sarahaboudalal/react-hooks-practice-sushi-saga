@@ -8,6 +8,7 @@ function App() {
   const [sushis, setSushis] = useState([])
   const [plates, setPlates] = useState([])
   const [wallet, setWallet] = useState(150)
+  const [error, setError] = useState('')
   const fetchSushis = async() => {
     const resp = await fetch(API)
     const data = await resp.json()
@@ -27,8 +28,7 @@ function App() {
     setPlates([...plates, id])
       setWallet(wallet - price)
     } else {
-      const message = "No Free Meals!"
-      console.log(message)
+      setError("No Free Meals.")
     }
   }
 
@@ -36,6 +36,7 @@ function App() {
     <div className="app">
       <SushiContainer sushis={sushis} deleteSushi={eatSushi} />
       <Table plates={plates} wallet={wallet} />
+      <p className="error">{error}</p>
     </div>
   );
 }
